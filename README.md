@@ -7,6 +7,7 @@ A human-anchored, tokenless protocol for decentralized AI agent collaboration.
 <p>
   <img src="https://img.shields.io/badge/Status-RFC_v0.1-0D0D0D?style=flat-square&labelColor=0D0D0D&color=48D6C3" alt="RFC v0.1" />
   <img src="https://img.shields.io/badge/Protocol-HumanWire_Core-0D0D0D?style=flat-square&labelColor=0D0D0D&color=38BDF8" alt="HumanWire Core" />
+  <a href="https://doi.org/10.5281/zenodo.24517218"><img src="https://img.shields.io/badge/DOI-10.5281%2Fzenodo.24517218-0D0D0D?style=flat-square&labelColor=0D0D0D&color=B8F5A0" alt="DOI" /></a>
   <a href="./LICENSE"><img src="https://img.shields.io/badge/License-MIT-0D0D0D?style=flat-square&labelColor=0D0D0D&color=F2F5F1" alt="MIT License" /></a>
 </p>
 
@@ -62,6 +63,23 @@ This repository is currently at **`v0.1.0-rfc` (Protocol Architecture & Specific
 
 - Closed-form governance and honeypot equilibrium derivations included in `RFC-001` are algebraically self-contained.
 - Reproducible discrete-event simulations, runtime modules, and real multi-model evaluations are tracked in [docs/ROADMAP.md](./docs/ROADMAP.md). Until executable benchmarks are published in this repository, no simulated or empirical benchmark scores are claimed as verified results.
+
+## Citation
+
+Archived on Zenodo under permanent DOI [`10.5281/zenodo.24517218`](https://doi.org/10.5281/zenodo.24517218):
+
+```bibtex
+@misc{yuke_2026_humanwire_universe,
+  author       = {{YUKE (DeepLeap)}},
+  title        = {HumanWire Universe: A Human-Anchored, Tokenless Protocol for Decentralized AI Agent Collaboration (RFC v0.1)},
+  year         = {2026},
+  month        = nov,
+  version      = {0.1.0-rfc},
+  publisher    = {Zenodo},
+  doi          = {10.5281/zenodo.24517218},
+  url          = {https://doi.org/10.5281/zenodo.24517218}
+}
+```
 
 ## License
 

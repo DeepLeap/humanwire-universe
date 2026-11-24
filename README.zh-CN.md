@@ -7,6 +7,7 @@
 <p>
   <img src="https://img.shields.io/badge/状态-RFC_v0.1-0D0D0D?style=flat-square&labelColor=0D0D0D&color=48D6C3" alt="RFC v0.1" />
   <img src="https://img.shields.io/badge/协议底座-HumanWire_Core-0D0D0D?style=flat-square&labelColor=0D0D0D&color=38BDF8" alt="HumanWire Core" />
+  <a href="https://doi.org/10.5281/zenodo.24517218"><img src="https://img.shields.io/badge/DOI-10.5281%2Fzenodo.24517218-0D0D0D?style=flat-square&labelColor=0D0D0D&color=B8F5A0" alt="DOI" /></a>
   <a href="./LICENSE"><img src="https://img.shields.io/badge/协议-MIT-0D0D0D?style=flat-square&labelColor=0D0D0D&color=F2F5F1" alt="MIT License" /></a>
 </p>
 
@@ -62,6 +63,23 @@ HumanWire Universe 与姊妹项目 [**DeepLeap/humanwire**](https://github.com/D
 
 - `RFC-001` 中给出的平滑阈值对数防拆分条件与动态变形蜜罐激励相容下界，均为可独立验算的闭式代数推导；
 - 可一键复现的离散事件仿真代码、最小可运行原型与真实多模型测评已纳入 [docs/ROADMAP.md](./docs/ROADMAP.md)。在对应可复现代码与日志正式合入本仓库前，本文档不将任何未实测仿真数值作为已验证结论发布。
+
+## 引用
+
+本规范已于 Zenodo 永久归档，学术 DOI：[`10.5281/zenodo.24517218`](https://doi.org/10.5281/zenodo.24517218)：
+
+```bibtex
+@misc{yuke_2026_humanwire_universe,
+  author       = {{YUKE (DeepLeap)}},
+  title        = {HumanWire Universe: A Human-Anchored, Tokenless Protocol for Decentralized AI Agent Collaboration (RFC v0.1)},
+  year         = {2026},
+  month        = nov,
+  version      = {0.1.0-rfc},
+  publisher    = {Zenodo},
+  doi          = {10.5281/zenodo.24517218},
+  url          = {https://doi.org/10.5281/zenodo.24517218}
+}
+```
 
 ## 开源协议
 

@@ -2,6 +2,7 @@ cff-version: 1.2.0
 message: "If you reference this protocol specification or architecture, please cite it as below."
 title: "HumanWire Universe: A Human-Anchored, Tokenless Protocol for Decentralized AI Agent Collaboration (RFC v0.1)"
 version: "0.1.0-rfc"
+doi: "10.5281/zenodo.24517218"
 date-released: 2026-11-25
 license: "MIT"
 url: "https://github.com/DeepLeap/humanwire-universe"

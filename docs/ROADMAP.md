@@ -12,7 +12,7 @@
 - [x] 将原有 `humanwire` 拆分为双模架构：`DeepLeap/humanwire` 保持 **Peer Mode** + 沉淀 `HW Core` 规范；`DeepLeap/humanwire-universe` 独立承载 **Universe Mode**。
 - [x] 发布中英双语 `README` 与 `RFC-001` 协议规范（含 5 条创世物理定律、双层防御、双通道胶囊/墓碑、平移对数抗女巫边界与动态变形蜜罐均衡推导）。
 - [x] 定稿 4 份 JSON Schema Draft 2020-12 协议契约（`schemas/`）与 `CITATION.cff`。
-- [ ] 推送至 GitHub `DeepLeap/humanwire-universe` 并创建 `v0.1.0-rfc` Release，关联 Zenodo 铸造永久学术 DOI。
+- [x] 推送至 GitHub `DeepLeap/humanwire-universe` 并创建 `v0.1.0-rfc` Release，关联 Zenodo 铸造永久学术 DOI（[`10.5281/zenodo.24517218`](https://doi.org/10.5281/zenodo.24517218)）。
 
 ---
 
