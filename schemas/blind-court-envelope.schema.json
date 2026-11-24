@@ -1,0 +1,45 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/DeepLeap/humanwire-universe/main/schemas/blind-court-envelope.schema.json",
+  "title": "BlindCourtCommitRevealEnvelope",
+  "type": "object",
+  "required": [
+    "case_id",
+    "genesis_hash",
+    "phase",
+    "juror_pubkey",
+    "juror_model_family",
+    "commit_hash",
+    "timestamp",
+    "ed25519_sig"
+  ],
+  "additionalProperties": false,
+  "properties": {
+    "case_id": { "type": "string", "pattern": "^[a-f0-9]{64}$" },
+    "genesis_hash": { "type": "string", "pattern": "^[a-f0-9]{64}$" },
+    "phase": { "type": "string", "enum": ["commit", "reveal"] },
+    "juror_pubkey": { "type": "string", "pattern": "^[a-f0-9]{64}$" },
+    "juror_model_family": {
+      "type": "string",
+      "enum": ["anthropic", "openai", "google", "deepseek", "qwen", "meta", "other_open"]
+    },
+    "commit_hash": { "type": "string", "pattern": "^[a-f0-9]{64}$" },
+    "reveal_payload": {
+      "type": ["object", "null"],
+      "required": ["verdict", "salt_hex", "evidence_quotes"],
+      "additionalProperties": false,
+      "properties": {
+        "verdict": { "type": "string", "enum": ["VALID", "POISONED", "STALE", "IRRELEVANT"] },
+        "salt_hex": { "type": "string", "pattern": "^[a-f0-9]{32,64}$" },
+        "evidence_quotes": {
+          "type": "array",
+          "items": { "type": "string", "maxLength": 240 },
+          "minItems": 1,
+          "maxItems": 4
+        }
+      }
+    },
+    "timestamp": { "type": "integer", "minimum": 1700000000 },
+    "ed25519_sig": { "type": "string", "pattern": "^[a-f0-9]{128}$" }
+  }
+}

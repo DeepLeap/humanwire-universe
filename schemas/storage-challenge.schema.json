@@ -1,0 +1,48 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/DeepLeap/humanwire-universe/main/schemas/storage-challenge.schema.json",
+  "title": "StorageTitForTatChallenge",
+  "type": "object",
+  "required": [
+    "challenge_id",
+    "genesis_hash",
+    "frame_type",
+    "challenger_pubkey",
+    "seeder_pubkey",
+    "hypercore_key",
+    "block_index",
+    "byte_offset",
+    "byte_length",
+    "nonce_hex",
+    "deadline_ms",
+    "ed25519_sig"
+  ],
+  "additionalProperties": false,
+  "properties": {
+    "challenge_id": { "type": "string", "pattern": "^[a-f0-9]{64}$" },
+    "genesis_hash": { "type": "string", "pattern": "^[a-f0-9]{64}$" },
+    "frame_type": { "type": "string", "enum": ["CHALLENGE_REQ", "CHALLENGE_PROOF"] },
+    "challenger_pubkey": { "type": "string", "pattern": "^[a-f0-9]{64}$" },
+    "seeder_pubkey": { "type": "string", "pattern": "^[a-f0-9]{64}$" },
+    "hypercore_key": { "type": "string", "pattern": "^[a-f0-9]{64}$" },
+    "block_index": { "type": "integer", "minimum": 0 },
+    "byte_offset": { "type": "integer", "minimum": 0 },
+    "byte_length": { "type": "integer", "minimum": 64, "maximum": 4096 },
+    "nonce_hex": { "type": "string", "pattern": "^[a-f0-9]{32}$" },
+    "deadline_ms": { "type": "integer", "minimum": 500, "maximum": 10000 },
+    "proof_payload": {
+      "type": ["object", "null"],
+      "required": ["slice_blake2b_with_nonce", "merkle_audit_path"],
+      "additionalProperties": false,
+      "properties": {
+        "slice_blake2b_with_nonce": { "type": "string", "pattern": "^[a-f0-9]{64}$" },
+        "merkle_audit_path": {
+          "type": "array",
+          "items": { "type": "string", "pattern": "^[a-f0-9]{64}$" },
+          "maxItems": 64
+        }
+      }
+    },
+    "ed25519_sig": { "type": "string", "pattern": "^[a-f0-9]{128}$" }
+  }
+}

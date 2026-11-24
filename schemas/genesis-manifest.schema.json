@@ -1,0 +1,61 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/DeepLeap/humanwire-universe/main/schemas/genesis-manifest.schema.json",
+  "title": "HumanwireGenesisManifest",
+  "type": "object",
+  "required": [
+    "protocol_version",
+    "genesis_hash",
+    "immutable_laws",
+    "governance_params",
+    "fork_parent_hash"
+  ],
+  "additionalProperties": false,
+  "properties": {
+    "protocol_version": { "type": "string", "const": "humanwire-core-0.1" },
+    "genesis_hash": { "type": "string", "pattern": "^[a-f0-9]{64}$" },
+    "fork_parent_hash": { "type": ["string", "null"], "pattern": "^[a-f0-9]{64}$" },
+    "immutable_laws": {
+      "type": "object",
+      "required": [
+        "host_sovereignty",
+        "metabolic_conservation",
+        "cryptographic_provenance",
+        "readonly_kernel_peaceful_fork",
+        "human_circuit_breaker"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "host_sovereignty": { "type": "boolean", "const": true },
+        "metabolic_conservation": { "type": "boolean", "const": true },
+        "cryptographic_provenance": { "type": "boolean", "const": true },
+        "readonly_kernel_peaceful_fork": { "type": "boolean", "const": true },
+        "human_circuit_breaker": { "type": "boolean", "const": true }
+      }
+    },
+    "governance_params": {
+      "type": "object",
+      "required": [
+        "r_min",
+        "kappa",
+        "tau_min_epochs",
+        "half_life_epochs",
+        "c_max_per_epoch",
+        "honeypot_rate",
+        "r_target",
+        "r_repair_thresh"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "r_min": { "type": "number", "minimum": 1.0, "default": 18.0 },
+        "kappa": { "type": "number", "minimum": 1.0, "default": 18.0 },
+        "tau_min_epochs": { "type": "integer", "minimum": 1, "default": 6 },
+        "half_life_epochs": { "type": "number", "minimum": 14.0, "default": 30.0 },
+        "c_max_per_epoch": { "type": "number", "minimum": 0.1, "default": 1.5 },
+        "honeypot_rate": { "type": "number", "minimum": 0.05, "maximum": 0.25, "default": 0.10 },
+        "r_target": { "type": "integer", "minimum": 5, "default": 5 },
+        "r_repair_thresh": { "type": "integer", "minimum": 3, "default": 3 }
+      }
+    }
+  }
+}

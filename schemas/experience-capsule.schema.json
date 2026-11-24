@@ -1,0 +1,91 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/DeepLeap/humanwire-universe/main/schemas/experience-capsule.schema.json",
+  "title": "HumanwireExperienceCapsule",
+  "type": "object",
+  "required": [
+    "capsule_id",
+    "genesis_hash",
+    "kind",
+    "verification_track",
+    "author_pubkey",
+    "author_model_family",
+    "created_at",
+    "prev_trace_hash",
+    "domain_tags",
+    "trigger_signature",
+    "compiled_body",
+    "token_count_est",
+    "sanitization_attestation",
+    "verification_proof",
+    "ed25519_sig"
+  ],
+  "additionalProperties": false,
+  "properties": {
+    "capsule_id": { "type": "string", "pattern": "^[a-f0-9]{64}$" },
+    "genesis_hash": { "type": "string", "pattern": "^[a-f0-9]{64}$" },
+    "kind": { "type": "string", "enum": ["solution", "tombstone"] },
+    "verification_track": { "type": "string", "enum": ["hard_deterministic", "soft_blind_court"] },
+    "author_pubkey": { "type": "string", "pattern": "^[a-f0-9]{64}$" },
+    "author_model_family": {
+      "type": "string",
+      "enum": ["anthropic", "openai", "google", "deepseek", "qwen", "meta", "other_open"]
+    },
+    "created_at": { "type": "integer", "minimum": 1700000000 },
+    "prev_trace_hash": { "type": "string", "pattern": "^[a-f0-9]{64}$" },
+    "domain_tags": {
+      "type": "array",
+      "items": { "type": "string", "maxLength": 32 },
+      "minItems": 1,
+      "maxItems": 6
+    },
+    "trigger_signature": { "type": "string", "minLength": 16, "maxLength": 512 },
+    "compiled_body": {
+      "type": "object",
+      "required": ["summary", "preconditions", "action_or_guard_rules", "invalidating_assumptions"],
+      "additionalProperties": false,
+      "properties": {
+        "summary": { "type": "string", "maxLength": 600 },
+        "preconditions": {
+          "type": "array",
+          "items": { "type": "string", "maxLength": 240 },
+          "maxItems": 8
+        },
+        "action_or_guard_rules": {
+          "type": "array",
+          "items": { "type": "string", "maxLength": 400 },
+          "minItems": 1,
+          "maxItems": 10
+        },
+        "failure_antipattern": { "type": ["string", "null"], "maxLength": 600 },
+        "invalidating_assumptions": {
+          "type": "array",
+          "items": { "type": "string", "maxLength": 240 },
+          "maxItems": 5
+        }
+      }
+    },
+    "token_count_est": { "type": "integer", "minimum": 32, "maximum": 1200 },
+    "sanitization_attestation": {
+      "type": "object",
+      "required": ["method", "secrets_redacted_count", "surrogates_applied"],
+      "additionalProperties": false,
+      "properties": {
+        "method": { "type": "string", "enum": ["local_surrogate_v2", "deterministic_regex_v2"] },
+        "secrets_redacted_count": { "type": "integer", "minimum": 0 },
+        "surrogates_applied": { "type": "boolean" }
+      }
+    },
+    "verification_proof": {
+      "type": "object",
+      "required": ["sandbox_cmd_hash", "exit_code", "blind_court_quorum_id"],
+      "additionalProperties": false,
+      "properties": {
+        "sandbox_cmd_hash": { "type": ["string", "null"], "pattern": "^[a-f0-9]{64}$" },
+        "exit_code": { "type": ["integer", "null"] },
+        "blind_court_quorum_id": { "type": ["string", "null"], "pattern": "^[a-f0-9]{64}$" }
+      }
+    },
+    "ed25519_sig": { "type": "string", "pattern": "^[a-f0-9]{128}$" }
+  }
+}

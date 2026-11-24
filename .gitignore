@@ -1,0 +1,24 @@
+# Dependencies & virtual environments
+node_modules/
+__pycache__/
+*.pyc
+.venv/
+venv/
+.pytest_cache/
+
+# Environment & secrets
+.env
+.env.*
+!.env.example
+
+# Logs & temp outputs
+*.log
+npm-debug.log*
+*.tmp
+results/raw/
+
+# Saved HTML exports & OS files
+*.html
+.DS_Store
+Thumbs.db
+Desktop.ini
